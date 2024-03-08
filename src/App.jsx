@@ -1,4 +1,5 @@
 
+import { Routes } from 'react-router-dom'
 import './App.css'
 
 function App() {
@@ -6,6 +7,10 @@ function App() {
 
   return (
     <>
+    <Routes>
+      {/* Writing route here */}
+      
+    </Routes>
       
     </>
   )
