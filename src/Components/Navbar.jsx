@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const navigation = [
   { name: "Home", href: "/homePage", current: true },
-  { name: "Contact us", href: "/contactUs", current: false },
+  { name: "About Us", href: "/aboutUs", current: false },
 ];
 
 function classNames(...classes) {
