@@ -1,16 +1,28 @@
 
-import { Routes } from 'react-router-dom'
+import { Routes,Route } from 'react-router-dom'
 import './App.css'
+import Footer from './Components/Footer'
+
+import HomePage from './Pages/HomePage'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
     <Routes>
-      {/* Writing route here */}
+      <Route path="/" element={<HomePage/>}></Route>
+     
+    
       
     </Routes>
+   
+
+
+    
+
+    
       
     </>
   )

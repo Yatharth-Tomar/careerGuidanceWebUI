@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState={
 
     isLoggedIn: localStorage.getItem("isLoggedIn") || false,
-    role: localStorage.geItem("role"),
+    role: localStorage.getItem("role"),
      data: localStorage.getItem("data")
 
 
@@ -11,7 +11,7 @@ const initialState={
 const authSlice=createSlice({
     name:"auth",
     initialState,
-    reducers:" "
+    reducer:" "
 })
 
 //inside reducers all elements are actions
