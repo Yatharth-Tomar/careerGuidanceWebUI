@@ -3,7 +3,7 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
+import { logoutAction } from "../assets/Redux/slices/authSlice";
 const navigation = [
   { name: "Home", href: "/", current: true },
   { name: "About Us", href: "/aboutUs", current: false },
@@ -17,9 +17,13 @@ function Navbar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  function handleLogout() {
+  async function handleLogout(e) {
     e.preventDefault();
-    navigate("/");
+
+    const response = await dispatch(logoutAction());
+    if (response?.payload?.sucess) {
+      navigate("/");
+    }
   }
 
   const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn);
