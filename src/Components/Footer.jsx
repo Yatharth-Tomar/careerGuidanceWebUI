@@ -6,7 +6,7 @@ function Footer() {
   console.log(year);
   return (
     <>
-      <footer className=" relative text-gray-800 bg-orange-300 font-semibold pt-8 pb-6 w-full bottom-0 bottom-0">
+      <footer className=" relative text-gray-800 bg-blue-300 font-semibold pt-8 pb-6 w-full bottom-0 bottom-0">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap text-left lg:text-left">
             <div className="w-full lg:w-6/12 px-4">

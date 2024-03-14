@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 const navigation = [
-  { name: "Home", href: "/homePage", current: true },
+  { name: "Home", href: "/", current: true },
   { name: "About Us", href: "/aboutUs", current: false },
 ];
 
