@@ -5,6 +5,8 @@
 body{
   margin: 0;
   background-color:  bg-gray-100;
+  max-width: 100%;
+    overflow-x: hidden;
   
 }
 

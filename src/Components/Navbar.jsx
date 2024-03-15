@@ -27,10 +27,10 @@ function Navbar() {
   }
 
   const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn);
-  console.log(isLoggedIn);
+ 
 
   const role = useSelector((state) => state?.auth?.role);
-  console.log(role);
+  
 
   return (
     <Disclosure as="nav" className="bg-gray-800">

@@ -18,7 +18,7 @@ function HomePage() {
             you.
           </p>
           <div className="">
-            <Link to="/Explore Now">
+            <Link to="/courses">
               <button className="bg-yellow-500 px-5 py-3 text-white rounded-md font-semibold text-l cursor-pointer hover:bg-yellow-600 transition-all ease-in-out duration-100">
                 Explore Now
               </button>
