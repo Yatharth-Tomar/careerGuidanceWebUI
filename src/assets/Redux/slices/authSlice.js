@@ -2,10 +2,13 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axiosInstance from "../../Helpers/axiosInstance";
 import toast from "react-hot-toast";
 
+const boolString="true";
+const localLog=localStorage.getItem("isLoggedIn")
+
 const initialState = {
-  isLoggedIn: localStorage.getItem("isLoggedIn") || false,
-  role: localStorage.getItem("role") || "Admin",
-  data: localStorage.getItem("data"),
+  isLoggedIn: (boolString===localLog)||false,
+  role: localStorage.getItem("role") || "normal",
+  data: localStorage.getItem("data") ||{}
 };
 
 //function to handle post request to the backend server application using asyncthunk
@@ -34,6 +37,7 @@ export const loginAction = createAsyncThunk("/auth/login", async (data) => {
     toast.promise(res, {
       loading: "Wait Logging you in...",
       success: (data) => {
+        console.log("hi  ",data?.data?.message)
         return data?.data?.message;
       },
       error: "Failed to Login",
@@ -71,15 +75,30 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(loginAction.fulfilled, (state, action) => {
-        localStorage.setItem(
-          "data",
-          JSON.stringify(action?.payload?.user?.role)
-        ),
-          localStorage.setItem("isLoggedIn", true),
-          localStorage.setItem("role", action?.payload?.user?.role);
-        state.isLoggedIn = true;
+       
+        
         state.data = action?.payload?.user;
         state.role = action?.payload?.user?.role;
+        if(state.data==undefined){
+          localStorage.setItem("isLoggedIn", false)
+        } 
+        else{
+          state.isLoggedIn = true;
+          localStorage.setItem("isLoggedIn", true),
+          localStorage.setItem("role", action?.payload?.user?.role);
+          localStorage.setItem(
+            "data",
+            JSON.stringify(action?.payload?.user)
+          )
+
+        }
+        
+        
+        
+      
+       
+       
+
       })
       .addCase(logoutAction.fulfilled, (state) => {
         localStorage.clear();

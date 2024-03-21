@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link, useNavigate } from "react-router-dom";
@@ -25,12 +25,9 @@ function Navbar() {
       navigate("/");
     }
   }
-
   const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn);
- 
 
   const role = useSelector((state) => state?.auth?.role);
-  
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
@@ -85,6 +82,7 @@ function Navbar() {
                     ))}
 
                     {/* adding conditional rendering */}
+
                     {!isLoggedIn && (
                       <>
                         <Link to="/login">
