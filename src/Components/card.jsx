@@ -1,7 +1,14 @@
+import { useNavigate } from "react-router-dom";
+
 function Card({ data }) {
+  const navigate = useNavigate();
+
   return (
     <>
-      <div className="flex px-3 max-w-80 py-3">
+      <div
+        className="flex px-3 max-w-80 py-3 cursor-pointer"
+        onClick={() => navigate("/courses/description", { state: { ...data } })}
+      >
         <div className="max-w-sm rounded overflow-hidden shadow-lg">
           <img
             className="w-full"
