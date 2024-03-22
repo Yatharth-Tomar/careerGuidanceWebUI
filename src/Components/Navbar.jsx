@@ -28,6 +28,7 @@ function Navbar() {
   const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn);
 
   const role = useSelector((state) => state?.auth?.role);
+  const data = useSelector((state) => state?.auth?.data);
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
@@ -121,7 +122,7 @@ function Navbar() {
                         <span className="sr-only">Open user menu</span>
                         <img
                           className="h-8 w-8 rounded-full"
-                          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                          src={data?.avatar?.secure_url}
                           alt=""
                         />
                       </Menu.Button>
@@ -139,7 +140,7 @@ function Navbar() {
                         <Menu.Item>
                           {({ active }) => (
                             <Link
-                              to="/profile"
+                              to="/user/profile"
                               className={classNames(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm text-gray-700"
