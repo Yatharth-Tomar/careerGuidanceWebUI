@@ -12,7 +12,7 @@ function Denied(){
                 <span className="sr-only">Error</span>403
             </h2>
             <p className="text-2xl md:text-3xl dark:text-gray-300">Oops You dont have permission to access this page.</p>
-            <Link to={navigate(-1)}className="px-8 py-4 text-xl font-semibold rounded bg-purple-600 text-gray-50 hover:text-gray-200">Back to home</Link>
+            <span onClick={()=>navigate("/")} className="px-8 py-4 cursor-pointer text-xl font-semibold rounded bg-purple-600 text-gray-50 hover:text-gray-200">Back to home</span>
         </div>
     </div>
 </section>
