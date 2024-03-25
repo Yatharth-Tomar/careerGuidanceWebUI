@@ -3,7 +3,7 @@ import { BsFacebook, BsInstagram, BsLinkedin, BsTwitter } from "react-icons/bs";
 function Footer() {
   const currentDate = new Date();
   const year = currentDate.getFullYear();
-  console.log(year);
+ 
   return (
     <>
       <footer className=" relative text-gray-800 bg-blue-300 font-semibold pt-8 pb-6 w-full bottom-0 bottom-0">

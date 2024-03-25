@@ -1,8 +1,25 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import HomeLayout from "../../Layout/HomeLayout";
+import { Link } from "react-router-dom";
+import { getUserDetails } from "../../assets/Redux/slices/authSlice";
+import { useEffect } from "react";
+import toast from "react-hot-toast";
 
 function Profile() {
+  const dispatch = useDispatch();
+
+  async function getProfile() {
+    const res = await dispatch(getUserDetails());
+
+    if (res?.payload?.success) {
+      toast.success("Profile loaded successfully");
+    }
+  }
   const data = useSelector((state) => state?.auth?.data);
+
+  useEffect(() => {
+    getProfile();
+  }, []);
   console.log("user prodile is ", data);
 
   return (
@@ -88,6 +105,15 @@ function Profile() {
                     </div>
                   </dl>
                 </div>
+              </div>
+
+              <div className="w-full flex ">
+                <Link
+                  to="/user/profile/edit"
+                  className="bg-blue-500 mt-[2rem] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                >
+                  Edit Profile
+                </Link>
               </div>
 
               <div className="my-10 lg:w-[70%] md:h-[14rem] xs:w-full xs:h-[10rem]"></div>
